@@ -1,0 +1,8 @@
+#!/bin/sh
+
+./conv 20
+./conv 29
+./conv 40
+./conv 60
+./conv 76
+./conv 1024

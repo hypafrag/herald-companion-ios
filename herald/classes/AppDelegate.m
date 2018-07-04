@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import <UserNotifications/UserNotifications.h>
+#import <Speech/Speech.h>
 
 @interface NSData (NSData_hexadecimalString)
 
@@ -47,14 +48,30 @@
 		}
 	}];
 
+	[SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+		switch (status) {
+			case SFSpeechRecognizerAuthorizationStatusAuthorized:
+				NSLog(@"Authorized");
+				break;
+			case SFSpeechRecognizerAuthorizationStatusDenied:
+				NSLog(@"Denied");
+				break;
+			case SFSpeechRecognizerAuthorizationStatusNotDetermined:
+				NSLog(@"Not Determined");
+				break;
+			case SFSpeechRecognizerAuthorizationStatusRestricted:
+				NSLog(@"Restricted");
+				break;
+			default:
+				break;
+		}
+	}];
+
 	return YES;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-	//UIoQOnRmudaaynF/+XLu+vKriqwxlNH0FybOBe8hbtA=
-	//NSString *token = [deviceToken base64EncodedStringWithOptions:0];
-	NSString *token = [deviceToken hexadecimalString];
-	NSLog(token);
+	NSLog(@"Push token: %@", [deviceToken hexadecimalString]);
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {

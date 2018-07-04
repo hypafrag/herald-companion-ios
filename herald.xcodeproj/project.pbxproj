@@ -14,7 +14,23 @@
 		2A65105F209DEB2100D16F11 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A65105E209DEB2100D16F11 /* SplashScreen.xib */; };
 		2A651062209DEBAC00D16F11 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A651061209DEBAC00D16F11 /* ViewController.xib */; };
 		2A65106B209E416F00D16F11 /* yay.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 2A65106A209E416F00D16F11 /* yay.aiff */; };
+		7AA3F68820ED49A9001289D1 /* HeraldRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3F68720ED49A9001289D1 /* HeraldRPC.m */; };
+		7AF7179220EBF77F003D2899 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF7179120EBF77F003D2899 /* Speech.framework */; };
+		A67A7CAA02B9EA0D6D9C89BF /* libPods-herald.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C15C1F28CC02CF017A9FFEC1 /* libPods-herald.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A15CD2A20E8F73700D627DD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A651045209DE2B700D16F11 /* herald.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = herald.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,6 +45,12 @@
 		2A651060209DEB7300D16F11 /* herald.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = herald.entitlements; sourceTree = "<group>"; };
 		2A651061209DEBAC00D16F11 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		2A65106A209E416F00D16F11 /* yay.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = yay.aiff; sourceTree = "<group>"; };
+		7AA3F68620ED49A9001289D1 /* HeraldRPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeraldRPC.h; sourceTree = "<group>"; };
+		7AA3F68720ED49A9001289D1 /* HeraldRPC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeraldRPC.m; sourceTree = "<group>"; };
+		7AF7179120EBF77F003D2899 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		A442288956F0A15FCA76E538 /* Pods-herald.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-herald.release.xcconfig"; path = "Pods/Target Support Files/Pods-herald/Pods-herald.release.xcconfig"; sourceTree = "<group>"; };
+		B66828C35DA051CBEEFABFAD /* Pods-herald.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-herald.debug.xcconfig"; path = "Pods/Target Support Files/Pods-herald/Pods-herald.debug.xcconfig"; sourceTree = "<group>"; };
+		C15C1F28CC02CF017A9FFEC1 /* libPods-herald.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-herald.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AF7179220EBF77F003D2899 /* Speech.framework in Frameworks */,
+				A67A7CAA02B9EA0D6D9C89BF /* libPods-herald.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +71,8 @@
 			children = (
 				2A651047209DE2B700D16F11 /* herald */,
 				2A651046209DE2B700D16F11 /* Products */,
+				7A15CD2B20E8FF2A00D627DD /* Frameworks */,
+				9B5699936C8D0B5C1872E623 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +106,8 @@
 				2A65104B209DE2B700D16F11 /* ViewController.h */,
 				2A65104C209DE2B700D16F11 /* ViewController.m */,
 				2A651061209DEBAC00D16F11 /* ViewController.xib */,
+				7AA3F68620ED49A9001289D1 /* HeraldRPC.h */,
+				7AA3F68720ED49A9001289D1 /* HeraldRPC.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -92,6 +120,24 @@
 			path = sounds;
 			sourceTree = "<group>";
 		};
+		7A15CD2B20E8FF2A00D627DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AF7179120EBF77F003D2899 /* Speech.framework */,
+				C15C1F28CC02CF017A9FFEC1 /* libPods-herald.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B5699936C8D0B5C1872E623 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B66828C35DA051CBEEFABFAD /* Pods-herald.debug.xcconfig */,
+				A442288956F0A15FCA76E538 /* Pods-herald.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A65105B209DE2B800D16F11 /* Build configuration list for PBXNativeTarget "herald" */;
 			buildPhases = (
+				15A3B47882D7E47C9A0982E5 /* [CP] Check Pods Manifest.lock */,
 				2A651041209DE2B700D16F11 /* Sources */,
 				2A651042209DE2B700D16F11 /* Frameworks */,
 				2A651043209DE2B700D16F11 /* Resources */,
+				7A15CD2A20E8F73700D627DD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -125,6 +173,9 @@
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
 								enabled = 1;
 							};
 						};
@@ -163,6 +214,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15A3B47882D7E47C9A0982E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-herald-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A651041209DE2B700D16F11 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -171,6 +243,7 @@
 				2A65104D209DE2B700D16F11 /* ViewController.m in Sources */,
 				2A651058209DE2B800D16F11 /* main.m in Sources */,
 				2A65104A209DE2B700D16F11 /* AppDelegate.m in Sources */,
+				7AA3F68820ED49A9001289D1 /* HeraldRPC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,11 +282,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dmitry Diachenko (N52T7UTAYH)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = BV9BK6U8T4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -233,7 +305,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "23062aef-7914-4894-96b0-f5446d32dd4c";
+				PROVISIONING_PROFILE = "c995e3de-38ef-4c93-a00d-56a89c6f88fd";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -270,11 +342,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dmitry Diachenko (BV9BK6U8T4)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = BV9BK6U8T4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -295,6 +366,7 @@
 		};
 		2A65105C209DE2B800D16F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B66828C35DA051CBEEFABFAD /* Pods-herald.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = herald/herald.entitlements;
@@ -306,13 +378,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = club.coons.herald;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c995e3de-38ef-4c93-a00d-56a89c6f88fd";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		2A65105D209DE2B800D16F11 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A442288956F0A15FCA76E538 /* Pods-herald.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = herald/herald.entitlements;

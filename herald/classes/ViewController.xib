@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,26 +12,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="activityIndicator" destination="ATX-dS-xsn" id="eln-X7-hkW"/>
+                <outlet property="recognizedTextLabel" destination="1JU-pv-1fk" id="iLr-ia-eqb"/>
+                <outlet property="timeoutProgressView" destination="L1a-UD-kol" id="4AR-9h-tG0"/>
                 <outlet property="view" destination="BRF-Lb-kOJ" id="CVC-Zb-HLZ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="BRF-Lb-kOJ">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0K-jt-dGn">
-                    <rect key="frame" x="145" y="269" width="30" height="30"/>
+                    <rect key="frame" x="133.5" y="84" width="53" height="98"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="72"/>
                     <state key="normal" title="O"/>
+                    <connections>
+                        <action selector="listen" destination="-1" eventType="touchUpInside" id="Ua3-ku-vee"/>
+                    </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ATX-dS-xsn">
+                    <rect key="frame" x="141.5" y="221.5" width="37" height="37"/>
+                    <color key="color" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
+                <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L1a-UD-kol">
+                    <rect key="frame" x="64" y="286" width="192" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="rro-0f-6id"/>
+                    </constraints>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JU-pv-1fk">
+                    <rect key="frame" x="32" y="320" width="256" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="ATX-dS-xsn" firstAttribute="centerY" secondItem="BRF-Lb-kOJ" secondAttribute="centerY" id="69i-PY-eOe"/>
+                <constraint firstItem="w0K-jt-dGn" firstAttribute="top" secondItem="hi9-2e-dhT" secondAttribute="top" constant="64" id="6H3-3M-nd3"/>
+                <constraint firstItem="hi9-2e-dhT" firstAttribute="trailing" secondItem="1JU-pv-1fk" secondAttribute="trailing" constant="32" id="BJ1-wb-PYP"/>
+                <constraint firstItem="ATX-dS-xsn" firstAttribute="centerX" secondItem="BRF-Lb-kOJ" secondAttribute="centerX" id="DKH-AR-HKh"/>
+                <constraint firstItem="1JU-pv-1fk" firstAttribute="leading" secondItem="hi9-2e-dhT" secondAttribute="leading" constant="32" id="Jtt-PM-2ip"/>
                 <constraint firstItem="w0K-jt-dGn" firstAttribute="centerX" secondItem="BRF-Lb-kOJ" secondAttribute="centerX" id="Nyf-wW-spg"/>
-                <constraint firstItem="w0K-jt-dGn" firstAttribute="centerY" secondItem="BRF-Lb-kOJ" secondAttribute="centerY" id="wCI-8T-kJu"/>
+                <constraint firstItem="L1a-UD-kol" firstAttribute="centerX" secondItem="BRF-Lb-kOJ" secondAttribute="centerX" id="R26-sG-cyZ"/>
+                <constraint firstAttribute="trailing" secondItem="L1a-UD-kol" secondAttribute="trailing" priority="750" constant="64" id="RA2-wy-4Yr"/>
+                <constraint firstItem="L1a-UD-kol" firstAttribute="leading" secondItem="BRF-Lb-kOJ" secondAttribute="leading" priority="750" constant="64" id="VyB-4N-qhV"/>
+                <constraint firstItem="hi9-2e-dhT" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1JU-pv-1fk" secondAttribute="bottom" constant="32" id="W8m-tF-asc"/>
+                <constraint firstItem="L1a-UD-kol" firstAttribute="top" secondItem="ATX-dS-xsn" secondAttribute="bottom" constant="27.5" id="a9K-k1-8Ts"/>
+                <constraint firstItem="1JU-pv-1fk" firstAttribute="top" secondItem="L1a-UD-kol" secondAttribute="bottom" constant="32" id="tWx-Q5-cZd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="hi9-2e-dhT"/>
-            <point key="canvasLocation" x="-144" y="-456"/>
+            <point key="canvasLocation" x="-80" y="-371"/>
         </view>
     </objects>
 </document>

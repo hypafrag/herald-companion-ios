@@ -43,5 +43,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSSiriUsageDescription</key>
+	<string>Using Herald&apos;s skills with Siri</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Talking to Herald</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Talking to Herald</string>
 </dict>
 </plist>

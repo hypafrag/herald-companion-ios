@@ -15,5 +15,6 @@
 - (void)say:(NSString *)phrase;
 - (void)skill:(NSString *)name;
 - (void)skill:(NSString *)name withArgs:(NSArray<NSString *> *) args;
+- (void)dialog:(NSString *)phrase;
 
 @end

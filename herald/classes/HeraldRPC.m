@@ -30,9 +30,7 @@
 	self = [super init];
 	if (self) {
 		self.requestCounter = 0;
-		self.websocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:@"ws://192.168.1.3:5246"]];
-		self.websocket.delegate = self;
-		[self.websocket open];
+		[self connect];
 	}
 	return self;
 }
@@ -53,24 +51,60 @@
 	return body;
 }
 
+- (void)connect {
+	if (self.websocket != nil) {
+		return;
+	}
+	self.websocket = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:@"ws://server.local:5246"]];
+	self.websocket.delegate = self;
+	[self.websocket open];
+}
+
 - (void)say:(NSString *)phrase {
-	[self.websocket send:[self requestBodyForMethod:@"say" withParams:@{@"phrase": phrase}]];
+	if (self.websocket.readyState == SR_OPEN)
+		[self.websocket send:[self requestBodyForMethod:@"say" withParams:@{@"phrase": phrase}]];
 }
 
 - (void)skill:(NSString *)name {
-	[self.websocket send:[self requestBodyForMethod:@"skill" withParams:@{@"name": name}]];
+	if (self.websocket.readyState == SR_OPEN)
+		[self.websocket send:[self requestBodyForMethod:@"skill" withParams:@{@"name": name}]];
 }
 
 - (void)skill:(NSString *)name withArgs:(NSArray<NSString *> *)args {
-	[self.websocket send:[self requestBodyForMethod:@"skill" withParams:@{@"name": name, @"args": args}]];
+	if (self.websocket.readyState == SR_OPEN)
+		[self.websocket send:[self requestBodyForMethod:@"skill" withParams:@{@"name": name, @"args": args}]];
+}
+
+- (void)dialog:(NSString *)phrase {
+	if (self.websocket.readyState == SR_OPEN)
+		[self.websocket send:[self requestBodyForMethod:@"dialog" withParams:@{@"phrase": phrase}]];
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
 	NSLog(@"Connected to HeraldRPC");
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-	NSLog(@"HeraldRPC response: %@", message);
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(NSString *)message {
+	NSDictionary *parsed = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+	NSLog(@"HeraldRPC response: %@", parsed);
+	id result = parsed[@"result"];
+	if ([result isKindOfClass:[NSDictionary class]]) {
+		NSString *reply = result[@"reply"];
+		if (reply != nil) {
+			NSLog(@"REPLY %@", reply);
+			[[HeraldRPC sharedInstance] say:reply];
+		}
+	}
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
+	NSLog(@"HeraldRPC closed: %@", reason);
+	self.websocket = nil;
+	[self connect];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
+	NSLog(@"HeraldRPC failed: %@", error);
 }
 
 @end

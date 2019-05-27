@@ -2,7 +2,7 @@
 #import "HeraldRPC.h"
 #import <Speech/Speech.h>
 
-#define TIMEOUT 3.0
+#define TIMEOUT 2.0
 
 @interface ViewController () <SFSpeechRecognizerDelegate>
 
@@ -105,6 +105,9 @@
 }
 
 - (void)stop {
+	if (self.recognizedTextLabel.text.length > 0) {
+		[[HeraldRPC sharedInstance] dialog:self.recognizedTextLabel.text];
+	}
 	self.timeoutProgressView.progress = 1.0;
 	self.timeoutProgressView.hidden = YES;
 	[self.activityIndicator stopAnimating];
@@ -115,6 +118,7 @@
 	self.recognitionRequest = nil;
 	self.recognitionTask = nil;
 	self.timeout = nil;
+	self.recognizedTextLabel.text = nil;
 	NSLog(@"Stopped");
 }
 

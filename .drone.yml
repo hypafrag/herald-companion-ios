@@ -15,8 +15,8 @@ steps:
       from_secret: keychain_password
   commands:
   - security list-keychains
-  - security default-keychain -s /Users/hypafrag/Library/Keychains/login.keychain-db
-  - security -v unlock-keychain -p $${PASSWORD}
+  - security -v unlock-keychain -p $${PASSWORD} "/Users/hypafrag/Library/Keychains/login.keychain-db"
+  - security list-keychains
   - fastlane adhoc
 
 trigger:

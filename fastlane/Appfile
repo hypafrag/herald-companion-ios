@@ -1,0 +1,8 @@
+app_identifier("club.coons.herald") # The bundle identifier of your app
+apple_id("hypafrag@mail.ru") # Your Apple email address
+
+itc_team_id("118967750") # App Store Connect Team ID
+team_id("BV9BK6U8T4") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

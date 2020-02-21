@@ -14,7 +14,7 @@ steps:
     PASSWORD:
       from_secret: keychain_password
   commands:
-  - HOME_ORIG=`echo ~$${USER}`
+  - HOME_ORIG=`echo ~${USER}`
   - echo $HOME_ORIG
 #  - ln -s `echo ~$${HOME_ORIG}/Library $${HOME}/Library
   - security list-keychains

@@ -11,17 +11,9 @@ steps:
   environment:
     LC_ALL: "en_US.UTF-8"
     LANG: "en_US.UTF-8"
-    PASSWORD:
-      from_secret: keychain_password
   commands:
   - ln -s /Users/$${USER}/Library $${HOME}/Library
-  - security list-keychains
-#  - security login-keychain -s "/Users/hypafrag/Library/Keychains/login.keychain-db" || true
-#  - security list-keychains
-#  - security login-keychain
-#  - security unlock-keychain -p $${PASSWORD} "/Users/hypafrag/Library/Keychains/login.keychain-db"
-#  - security list-keychains
-#  - fastlane adhoc
+  - fastlane adhoc
 
 trigger:
   branch:

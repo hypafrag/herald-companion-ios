@@ -14,7 +14,7 @@ steps:
     PASSWORD:
       from_secret: keychain_password
   commands:
-  - security -v unlock-keychain -p ${PASSWORD}
+  - security -v unlock-keychain -p $${PASSWORD}
   - fastlane adhoc
 
 trigger:

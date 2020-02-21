@@ -16,9 +16,10 @@ steps:
   commands:
   - ln -s /Users/$${USER}/Library $${HOME}/Library
   - fastlane adhoc
-  - ARTIFACT_DIR='/tmp/$${DRONE_BUILD_STARTED}_$${CI_COMMIT_SHA}'
-  - curl -X MKCOL 'https://webdav.coons.club/$${ARTIFACT_DIR}' --user $${WEBDAV_USER}
-  - curl -T 'herald.ipa' 'https://webdav.coons.club/$${ARTIFACT_DIR}/herald.ipa' --user $${WEBDAV_USER}
+  - ARTIFACT_DIR=/tmp/$${DRONE_BUILD_STARTED}_$${CI_COMMIT_SHA}
+  - echo $${ARTIFACT_DIR}
+  - curl -s -X MKCOL https://webdav.coons.club/$${ARTIFACT_DIR} --user $${WEBDAV_USER}
+  - curl -s -T 'herald.ipa' https://webdav.coons.club/$${ARTIFACT_DIR}/herald.ipa --user $${WEBDAV_USER}
 
 trigger:
   branch:

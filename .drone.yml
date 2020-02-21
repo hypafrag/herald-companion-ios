@@ -14,7 +14,9 @@ steps:
     PASSWORD:
       from_secret: keychain_password
   commands:
-  - ln -s `echo ~\`id -un\``/Library $${HOME}/Library
+  - HOME_ORIG=`id -un`
+  - echo $HOME_ORIG
+#  - ln -s `echo ~$${HOME_ORIG}/Library $${HOME}/Library
   - security list-keychains
 #  - security login-keychain -s "/Users/hypafrag/Library/Keychains/login.keychain-db" || true
 #  - security list-keychains

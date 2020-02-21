@@ -1,3 +1,8 @@
 .DS_Store
 xcuserdata
 xcshareddata
+fastlane/README.md
+fastlane/report.xml
+build/
+herald.app.dSYM.zip
+herald.ipa

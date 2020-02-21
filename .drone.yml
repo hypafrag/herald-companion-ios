@@ -18,7 +18,7 @@ steps:
   - fastlane adhoc
   - ARTIFACT_DIR='/tmp/$${DRONE_BUILD_STARTED}_$${CI_COMMIT_SHA}'
   - curl -X MKCOL 'https://webdav.coons.club/$${ARTIFACT_DIR}' --user $${WEBDAV_USER}
-  - curl -T 'herald.ipa' 'https://webdav.coons.club/$${ARTIFACT_DIR}/herald.ipa'
+  - curl -T 'herald.ipa' 'https://webdav.coons.club/$${ARTIFACT_DIR}/herald.ipa' --user $${WEBDAV_USER}
 
 trigger:
   branch:

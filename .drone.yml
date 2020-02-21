@@ -14,14 +14,15 @@ steps:
     PASSWORD:
       from_secret: keychain_password
   commands:
-  - echo `echo ~hypafrag`
+  - ln -s `echo ~hypafrag`/Library ${{HOME}}/Library
   - security list-keychains
-  - security login-keychain -s "/Users/hypafrag/Library/Keychains/login.keychain-db" || true
-  - security list-keychains
-  - security login-keychain
-  - security unlock-keychain -p $${PASSWORD} "/Users/hypafrag/Library/Keychains/login.keychain-db"
-  - security list-keychains
-  - fastlane adhoc
+  - rm ${{HOME}}/Library
+#  - security login-keychain -s "/Users/hypafrag/Library/Keychains/login.keychain-db" || true
+#  - security list-keychains
+#  - security login-keychain
+#  - security unlock-keychain -p $${PASSWORD} "/Users/hypafrag/Library/Keychains/login.keychain-db"
+#  - security list-keychains
+#  - fastlane adhoc
 
 trigger:
   branch:

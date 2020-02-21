@@ -8,7 +8,12 @@ platform:
 
 steps:
 - name: build  
+  environment:
+    LC_ALL: "en_US.UTF-8"
+    LANG: "en_US.UTF-8"
   commands:
+  - id
+  - env
   - fastlane adhoc
 
 trigger:

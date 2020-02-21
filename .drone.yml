@@ -14,6 +14,7 @@ steps:
     PASSWORD:
       from_secret: keychain_password
   commands:
+  - echo ${{HOME}}
   - security list-keychains
   - security login-keychain -s "/Users/hypafrag/Library/Keychains/login.keychain-db" || true
   - security list-keychains

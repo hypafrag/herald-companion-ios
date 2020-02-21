@@ -11,9 +11,14 @@ steps:
   environment:
     LC_ALL: "en_US.UTF-8"
     LANG: "en_US.UTF-8"
+    WEBDAV_USER:
+      from_secret: WEBDAV_USER
   commands:
   - ln -s /Users/$${USER}/Library $${HOME}/Library
   - fastlane adhoc
+  - ARTIFACT_DIR='/tmp/$${DRONE_BUILD_STARTED}_$${CI_COMMIT_SHA}'
+  - curl -X MKCOL 'https://webdav.coons.club/$${ARTIFACT_DIR}' --user $${WEBDAV_USER}
+  - curl -T 'herald.ipa' 'https://webdav.coons.club/$${ARTIFACT_DIR}/herald.ipa'
 
 trigger:
   branch:

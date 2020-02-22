@@ -14,7 +14,6 @@ steps:
     WEBDAV_USER:
       from_secret: WEBDAV_USER
   commands:
-  - ln -s /Users/$${USER}/Library $${HOME}/Library
   - fastlane adhoc
   - ARTIFACT_DIR=/tmp/$${DRONE_BUILD_STARTED}_$${CI_COMMIT_SHA}
   - echo $${ARTIFACT_DIR}

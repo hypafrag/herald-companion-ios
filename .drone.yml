@@ -19,7 +19,7 @@ steps:
   - fastlane adhoc
   - ARTIFACT_DIR="/herald/`date -u '+%d%m%y-%H%M%S'`_$${CI_COMMIT_SHA}"
   - echo $${ARTIFACT_DIR}
-  - ipa-ota herald.ipa $${WEBDAV_BASE_URL}$${ARTIFACT_DIR} > install.html
+  - ipa-ota herald.ipa $${WEBDAV_BASE_URL}$${ARTIFACT_DIR}/ > install.html
   - curl -sSf -X MKCOL $${WEBDAV_BASE_URL}/herald --user $${WEBDAV_USER}
   - curl -sSf -X MKCOL $${WEBDAV_BASE_URL}$${ARTIFACT_DIR} --user $${WEBDAV_USER}
   - curl -sSf -T 'herald.ipa' $${WEBDAV_BASE_URL}$${ARTIFACT_DIR}/herald.ipa --user $${WEBDAV_USER}

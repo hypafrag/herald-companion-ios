@@ -19,12 +19,12 @@ steps:
   - fastlane adhoc
   - ARTIFACT_DIR=/`date -u '+%d%m%y-%H%M%S'`_$${CI_COMMIT_SHA}
   - echo $${ARTIFACT_DIR}
-  - ipa-ota herald.ipa $${WEBDAV_BASE_URL}/$${ARTIFACT_DIR} > install.html
-  - curl -s -X MKCOL $${WEBDAV_BASE_URL}/$${ARTIFACT_DIR} --user $${WEBDAV_USER}
-  - curl -s -T 'herald.ipa' $${WEBDAV_BASE_URL}/$${ARTIFACT_DIR}/herald.ipa --user $${WEBDAV_USER}
-  - curl -s -T 'herald.plist' $${WEBDAV_BASE_URL}/$${ARTIFACT_DIR}/herald.plist --user $${WEBDAV_USER}
-  - curl -s -T 'herald.app.dSYM.zip' $${WEBDAV_BASE_URL}/$${ARTIFACT_DIR}/herald.app.dSYM.zip --user $${WEBDAV_USER}
-  - curl -s -T 'install.html' $${WEBDAV_BASE_URL}/$${ARTIFACT_DIR}/install.html --user $${WEBDAV_USER}
+  - ipa-ota herald.ipa $${WEBDAV_BASE_URL}$${ARTIFACT_DIR} > install.html
+  - curl -sSf -X MKCOL $${WEBDAV_BASE_URL}$${ARTIFACT_DIR} --user $${WEBDAV_USER}
+  - curl -sSf -T 'herald.ipa' $${WEBDAV_BASE_URL}$${ARTIFACT_DIR}/herald.ipa --user $${WEBDAV_USER}
+  - curl -sSf -T 'herald.plist' $${WEBDAV_BASE_URL}$${ARTIFACT_DIR}/herald.plist --user $${WEBDAV_USER}
+  - curl -sSf -T 'herald.app.dSYM.zip' $${WEBDAV_BASE_URL}$${ARTIFACT_DIR}/herald.app.dSYM.zip --user $${WEBDAV_USER}
+  - curl -sSf -T 'install.html' $${WEBDAV_BASE_URL}$${ARTIFACT_DIR}/install.html --user $${WEBDAV_USER}
 
 trigger:
   branch:

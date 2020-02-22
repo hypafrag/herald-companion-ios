@@ -21,7 +21,9 @@ platform :ios do
     build_app(
       workspace: "herald.xcworkspace",
       scheme: "herald",
-      export_xcargs: "-allowProvisioningUpdates"
+      export_xcargs: "-allowProvisioningUpdates",
+      derived_data_path: "build",
+      build_path: "build"
     )
     upload_to_testflight
   end

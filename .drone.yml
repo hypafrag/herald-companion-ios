@@ -15,10 +15,14 @@ steps:
       from_secret: WEBDAV_USER
   commands:
   - fastlane adhoc
-  - ARTIFACT_DIR=/tmp/$${DRONE_BUILD_STARTED}_$${CI_COMMIT_SHA}
+  - ARTIFACT_DIR=/ota/`date -u '+%d%m%y-%H%M%S'`_$${CI_COMMIT_SHA}
   - echo $${ARTIFACT_DIR}
+  - ipa-ota herald.ipa https://webdav.coons.club/$${ARTIFACT_DIR} > install.html
   - curl -s -X MKCOL https://webdav.coons.club/$${ARTIFACT_DIR} --user $${WEBDAV_USER}
   - curl -s -T 'herald.ipa' https://webdav.coons.club/$${ARTIFACT_DIR}/herald.ipa --user $${WEBDAV_USER}
+  - curl -s -T 'herald.plist' https://webdav.coons.club/$${ARTIFACT_DIR}/herald.plist --user $${WEBDAV_USER}
+  - curl -s -T 'herald.app.dSYM.zip' https://webdav.coons.club/$${ARTIFACT_DIR}/herald.app.dSYM.zip --user $${WEBDAV_USER}
+  - curl -s -T 'install.html' https://webdav.coons.club/$${ARTIFACT_DIR}/install.html --user $${WEBDAV_USER}
 
 trigger:
   branch:
